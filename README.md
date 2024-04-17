@@ -40,13 +40,12 @@ Get the data out of SQL and display on DOM!
 🐻 = Client-Side
 🐻‍❄️ = Server-Side
 
-
 1. 🐻 Ask the server for the "us" data.
   * Inside a `getAndRender` function.
   * `axios` to make the HTTP GET request.
 2. 🐻‍❄️ Ask the database for the "us" data.
   * Inside a GET route.
-  * `pool.query` to send a `SELECT * FROM us` query.
+  * `pool.query` to send a `SELECT * FROM us` SQL query.
 3. 🐻‍❄️ When our "us" data comes back (AKA: Inside the `pool.query`'s `.then`.), we send it to the client.
   * `dbResult.rows` will be the actual data we want to mail back to the client.
 4. 🐻 Now the data we asked for in Step 1 is here. We need to write code that will render this data on the DOM.
@@ -54,5 +53,20 @@ Get the data out of SQL and display on DOM!
   * DOM manipulation happens to display the "us" data we just got.
 
 
+## POST Functionality:
 
+Collect a name from the user, then send it to the server and insert it into the "us" table.
 
+🐻 = Client-Side
+🐻‍❄️ = Server-Side
+
+1. 🐻 Create a form in `index.html` with one input to collect a name and a submit button.
+2. 🐻 When the submit button gets clicked, send the name to the server.
+  * Inside a `createPerson` or `handleSubmit` function.
+  * `axios` to make the HTTP POST request.
+3. 🐻‍❄️ Ask the database to insert a new row into the "us" table, using the name that got sent.
+  * Inside a POST route.
+  * `pool.query` to send a `INSERT INTO` SQL query.
+  * Gonna need to do the ol' `pool.query(sqlText, sqlValues)` trick. 🙂
+4. 🐻‍❄️ When the `INSERT INTO` SQL query has succeeded, send status 201 to the client.
+5. 🐻 Now we know that our POST request was successful, we call our `getAndRender` function to refresh the DOM with our database data.

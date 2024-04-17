@@ -24,6 +24,16 @@ axios({
   })
 };
 
+function handleSubmit(event) {
+  event.preventDefault();
+
+  // 1. Obtain the text the user typed into the name
+  //    input, then store it in a variable called name.
+  // 2. Send a POST request to POST /us containing
+  //    a data object that looks something like:
+  //    {name: name}
+}
+
 // Call the function so that it executes when our web
 // app loads up initially:
 getAndRenderDB();

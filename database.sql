@@ -2,7 +2,7 @@
 CREATE TABLE "us" (
   "id" SERIAL PRIMARY KEY,
   "name" VARCHAR(500) NOT NULL,
-  "ishungry" BOOLEAN,
+  "ishungry" BOOLEAN DEFAULT FALSE,
   "inserted_at" TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 
@@ -11,6 +11,6 @@ INSERT INTO "us"
   ("name", "ishungry")
   VALUES
   ('Lexi', true),
-  ('Heather', true),
+  ('Heather', false),
   ('Mahad', true),
   ('Mustafa', false);
