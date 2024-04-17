@@ -4,7 +4,11 @@ const pool = require('../modules/pool.js');
 const router = express.Router();
 
 
-// GET /things - - - - - - - Respond with all the things.
+// GET /us - - - - - - - Respond with all the things.
+router.get('/', (req,res) => {
+  // Check to see if the router is connected and working
+    console.log('router is online');
+})
 
 // GET /things/:id - - - - - Respond with one thing.
 
