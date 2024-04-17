@@ -31,3 +31,28 @@
   * Or, kick it old-school and use `node server/server.js`.
 10. Go to `http://localhost:5001`.
 11. Build a CRUD app.
+
+
+## GET Functionality:
+
+Get the data out of SQL and display on DOM!
+
+🐻 = Client-Side
+🐻‍❄️ = Server-Side
+
+
+1. 🐻 Ask the server for the "us" data.
+  * Inside a `getAndRender` function.
+  * `axios` to make the HTTP GET request.
+2. 🐻‍❄️ Ask the database for the "us" data.
+  * Inside a GET route.
+  * `pool.query` to send a `SELECT * FROM us` query.
+3. 🐻‍❄️ When our "us" data comes back (AKA: Inside the `pool.query`'s `.then`.), we send it to the client.
+  * `dbResult.rows` will be the actual data we want to mail back to the client.
+4. 🐻 Now the data we asked for in Step 1 is here. We need to write code that will render this data on the DOM.
+  * Inside the `getAndRender` function.
+  * DOM manipulation happens to display the "us" data we just got.
+
+
+
+
